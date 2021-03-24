@@ -39,8 +39,9 @@
       "prefix": "tailwindcss-poc",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/apps/tailwind-web",
             "index": "apps/tailwind-web/src/index.html",
             "main": "apps/tailwind-web/src/main.ts",
@@ -85,8 +86,9 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "tailwind-web:build"
           },
           "configurations": {
@@ -111,9 +113,10 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "ngx-build-plus:karma",
           "outputs": ["coverage/apps/tailwind-web"],
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "jestConfig": "apps/tailwind-web/jest.config.js",
             "passWithNoTests": true
           }
