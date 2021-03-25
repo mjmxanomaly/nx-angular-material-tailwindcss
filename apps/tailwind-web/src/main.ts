@@ -6,6 +6,7 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
+  document.querySelector('body').classList.toggle('debug-screens');
 }
 
 platformBrowserDynamic()

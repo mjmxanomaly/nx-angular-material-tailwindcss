@@ -1,5 +1,11 @@
 module.exports = {
-  purge: ['./dist/**/*.html', './dist/**/*.ts'],
+  purge: {
+    layers: ['utilities'],
+    content: ['./apps/**/*.html', './apps/**/*.ts'],
+    options: {
+      safelist: [/^mat-/, /^cdk-/],
+    },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     debugScreens: {
@@ -9,6 +15,9 @@ module.exports = {
   },
   variants: {
     extend: {},
+  },
+  corePlugins: {
+    float: false,
   },
   plugins: [require('tailwindcss-debug-screens')],
 };

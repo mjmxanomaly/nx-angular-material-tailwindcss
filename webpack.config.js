@@ -8,11 +8,13 @@ module.exports = {
           postcssOptions: {
             ident: 'postcss',
             syntax: 'postcss-scss',
-            plugins: [
-              require('postcss-import'),
-              require('tailwindcss'),
-              require('autoprefixer'),
-            ],
+            plugins: {
+              'postcss-import': {},
+              [process.env.NODE_ENV === 'production'
+                ? 'tailwindcss'
+                : '@tailwindcss/jit']: {},
+              autoprefixer: {},
+            },
           },
         },
       },
