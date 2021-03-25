@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    layers: ['utilities'],
+    layers: ['components', 'utilities'],
     content: ['./apps/**/*.html', './apps/**/*.ts'],
     options: {
       safelist: [/^mat-/, /^cdk-/],
